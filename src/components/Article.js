@@ -66,7 +66,7 @@ class Article extends Component {
     }
 }
 
-export default toggleOpen(Article);
+export default Article;
 // export default function Article(props) {
 //     const {article} = props;
 //     return (
