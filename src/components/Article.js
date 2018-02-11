@@ -15,11 +15,27 @@ class Article extends Component {
         // article: PropTypes.object.isRequired
     };
 
+    // constructor(props) {
+    //     super(props);
+    //
+    //     this.state = {
+    //         isOpen: props.defaultOpen
+    //     }
+    // }
+
+    componentWillReceiveProps(nextProps) {
+        console.log('---', 'updating', this.props.isOpen, nextProps.isOpen);
+    }
+
+    componentWillMount() {
+        console.log('---', 'mounting');
+    }
+
 
     render() {
         const {article, isOpen, toggleOpen} = this.props;
         return (
-            <div>
+            <div ref={this.setContainerRef}>
                 <h3>{article.title}</h3>
                 <button onClick = {toggleOpen} >
                     {isOpen ? 'close' : 'open'}
@@ -27,6 +43,15 @@ class Article extends Component {
                 {this.getBody()}
             </div>
         )
+    }
+
+    setContainerRef = ref => {
+        this.container = ref;
+        console.log('--- ref', ref)
+    };
+
+    componentDidMount() {
+        console.log('---', 'mounted');
     }
 
     getBody() {
@@ -39,8 +64,6 @@ class Article extends Component {
             </div>
         )
     }
-
-
 }
 
 export default toggleOpen(Article);
