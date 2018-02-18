@@ -1,11 +1,13 @@
 import React, {Component} from 'react';
 import Article from './Article';
-import toggleOpen from '../decorators/toggleOpen';
+import accordion from '../decorators/accordion';
+import PropTypes from "prop-types";
 
 class ArticleList extends Component {
-    // state = {
-    //     openArticleId: null
-    // };
+
+    static propTypes = {
+        articles: PropTypes.arrayOf(PropTypes.object)
+    };
 
     render() {
         const articleElements = this.props.articles.map((article) => <li key={article.id}>
@@ -22,15 +24,5 @@ class ArticleList extends Component {
             </ul>
         )
     }
-
-    // toggleOpenArticle(openArticleId) {
-    //     if (this.state.openArticleId == openArticleId) {
-    //         this.setState({ openArticleId: null });
-    //         return;
-    //     }
-    //     this.setState({ openArticleId })
-    // }
-
-
 }
-export default toggleOpen(ArticleList);
+export default accordion(ArticleList);
