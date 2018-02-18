@@ -1,13 +1,13 @@
 import React, {Component as ReactComponent} from 'react';
 
-export default (OriginalComponent) => class WrappedComponent extends ReactComponent {
+export default (OriginalComponent) => class Accordion extends ReactComponent {
     state = {
-        openArticleId: null
+        openItemId: null
     };
 
     render() {
         return <OriginalComponent {...this.props} {...this.state}
-                                  openArticleId={this.state.openArticleId}
+                                  openItemId={this.state.openItemId}
                                   toggleOpenArticle={this.toggleOpenArticle.bind(this)}
         />
 
@@ -15,7 +15,7 @@ export default (OriginalComponent) => class WrappedComponent extends ReactCompon
         //     <OriginalComponent
         //         {...this.props} {...this.state}
         //         article = {article}
-        //         isOpen = {article.id == this.state.openArticleId}
+        //         isOpen = {article.id == this.state.openItemId}
         //         toggleOpen = {this.toggleOpenArticle.bind(this, article.id)}
         //     />
         // </li>);
@@ -27,11 +27,9 @@ export default (OriginalComponent) => class WrappedComponent extends ReactCompon
         // )
     }
 
-    toggleOpenArticle(openArticleId) {
-        if (this.state.openArticleId == openArticleId) {
-            this.setState({ openArticleId: null });
-            return;
-        }
-        this.setState({ openArticleId })
+    toggleOpenArticle(openItemId) {
+        this.setState({
+            openItemId: openItemId === this.state.openItemId ? null : openItemId
+        })
     }
 }

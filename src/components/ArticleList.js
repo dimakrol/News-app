@@ -13,7 +13,7 @@ class ArticleList extends Component {
         const articleElements = this.props.articles.map((article) => <li key={article.id}>
             <Article
                 article = {article}
-                isOpen = {article.id == this.props.openArticleId}
+                isOpen = {article.id == this.props.openItemId}
                 toggleOpen = {this.props.toggleOpenArticle.bind(this, article.id)}
             />
         </li>);
