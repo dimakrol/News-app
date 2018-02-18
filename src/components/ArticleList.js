@@ -16,7 +16,7 @@ class ArticleList extends Component {
             <Article
                 article = {article}
                 isOpen = {article.id == this.props.openItemId}
-                toggleOpen = {this.props.toggleOpenItem.bind(article.id)}
+                toggleOpen = {this.props.toggleOpenItem.bind(this, article.id)}
             />
         </li>);
 

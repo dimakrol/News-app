@@ -6,7 +6,7 @@ export default (OriginalComponent) => class Accordion extends ReactComponent {
     };
 
     render() {
-        return <OriginalComponent {...this.props} {...this.state}
+        return <OriginalComponent {...this.props}
                                   openItemId={this.state.openItemId}
                                   toggleOpenItem={this.toggleOpenItem.bind(this)}
         />

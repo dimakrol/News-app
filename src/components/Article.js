@@ -23,13 +23,13 @@ class Article extends Component {
     //     }
     // }
 
-    // componentWillReceiveProps(nextProps) {
-    //     console.log('---', 'updating', this.props.isOpen, nextProps.isOpen);
-    // }
-    //
-    // componentWillMount() {
-    //     console.log('---', 'mounting');
-    // }
+    componentWillReceiveProps(nextProps) {
+        console.log('---', 'updating', this.props.isOpen, nextProps.isOpen);
+    }
+
+    componentWillMount() {
+        console.log('---', 'mounting');
+    }
 
 
     render() {
@@ -45,14 +45,14 @@ class Article extends Component {
         )
     }
 
-    // setContainerRef = ref => {
-    //     this.container = ref;
-    //     console.log('--- ref', ref)
-    // };
-    //
-    // componentDidMount() {
-    //     console.log('---', 'mounted');
-    // }
+    setContainerRef = ref => {
+        this.container = ref;
+        console.log('--- ref', ref)
+    };
+
+    componentDidMount() {
+        console.log('---', 'mounted');
+    }
 
     getBody() {
         const {article, isOpen} = this.props;
@@ -60,9 +60,13 @@ class Article extends Component {
         return (
             <div>
                 <section>{article.text}</section>
-                <CommentList comments={article.comments}></CommentList>
+                <CommentList comments={article.comments} ref = {this.setCommentsRef}></CommentList>
             </div>
         )
+    }
+
+    setCommentsRef = ref => {
+        console.log('---', ref)
     }
 }
 
