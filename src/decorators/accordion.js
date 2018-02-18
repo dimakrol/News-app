@@ -1,9 +1,12 @@
 import React, {Component as ReactComponent} from 'react';
 
 export default (OriginalComponent) => class Accordion extends ReactComponent {
-    state = {
-        openItemId: null
-    };
+    constructor(props) {
+        super(props)
+        this.state = {
+            openItemId: props.defaultOpenId
+        }
+    }
 
     render() {
         return <OriginalComponent {...this.props}
