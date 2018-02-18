@@ -23,6 +23,10 @@ export default class ArticleList extends Component {
     }
 
     toggleOpenArticle(openArticleId) {
+        if (this.state.openArticleId == openArticleId) {
+            this.setState({ openArticleId: null });
+            return;
+        }
         this.setState({ openArticleId })
     }
 
