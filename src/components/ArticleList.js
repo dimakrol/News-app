@@ -6,7 +6,9 @@ import PropTypes from "prop-types";
 class ArticleList extends Component {
 
     static propTypes = {
-        articles: PropTypes.arrayOf(PropTypes.object)
+        articles: PropTypes.arrayOf(PropTypes.object),
+        openItemId: PropTypes.string,
+        toggleOpenItem: PropTypes.func.isRequired
     };
 
     render() {
@@ -14,7 +16,7 @@ class ArticleList extends Component {
             <Article
                 article = {article}
                 isOpen = {article.id == this.props.openItemId}
-                toggleOpen = {this.props.toggleOpenArticle.bind(this, article.id)}
+                toggleOpen = {this.props.toggleOpenItem.bind(article.id)}
             />
         </li>);
 
