@@ -1,7 +1,6 @@
-import React, {Component} from 'react';
+import React, {Component, PureComponent} from 'react';
 import PropTypes from 'prop-types';
 import CommentList from './CommentList';
-import toggleOpen from '../decorators/toggleOpen';
 
 class Article extends Component {
 
@@ -11,9 +10,11 @@ class Article extends Component {
             title: PropTypes.string.isRequired,
             text: PropTypes.string
         }).isRequired
-
-        // article: PropTypes.object.isRequired
     };
+
+    state = {
+        updateIndex: 0
+    }
 
     // constructor(props) {
     //     super(props);
@@ -23,17 +24,9 @@ class Article extends Component {
     //     }
     // }
 
-    componentWillReceiveProps(nextProps) {
-        console.log('---', 'updating', this.props.isOpen, nextProps.isOpen);
-    }
-
-    componentWillMount() {
-        console.log('---', 'mounting');
-    }
-
-
     render() {
         const {article, isOpen, toggleOpen} = this.props;
+        console.log('---', 'update Article');
         return (
             <div ref={this.setContainerRef}>
                 <h3>{article.title}</h3>
@@ -50,9 +43,9 @@ class Article extends Component {
         console.log('--- ref', ref)
     };
 
-    componentDidMount() {
-        console.log('---', 'mounted');
-    }
+    // shouldComponentUpdate(nextProps, nextState) {
+    //     return nextProps.isOpen !== this.props.isOpen
+    // }
 
     getBody() {
         const {article, isOpen} = this.props;
@@ -60,7 +53,8 @@ class Article extends Component {
         return (
             <div>
                 <section>{article.text}</section>
-                <CommentList comments={article.comments} ref = {this.setCommentsRef}></CommentList>
+                <button onClick={() => this.setState({updateIndex: this.state.updateIndex + 1})}>Update</button>
+                <CommentList comments={article.comments} ref = {this.setCommentsRef} key={this.state.updateIndex}></CommentList>
             </div>
         )
     }

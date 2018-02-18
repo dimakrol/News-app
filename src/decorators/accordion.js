@@ -10,21 +10,6 @@ export default (OriginalComponent) => class Accordion extends ReactComponent {
                                   openItemId={this.state.openItemId}
                                   toggleOpenItem={this.toggleOpenItem.bind(this)}
         />
-
-        // const articleElements = this.props.articles.map((article) => <li key={article.id}>
-        //     <OriginalComponent
-        //         {...this.props} {...this.state}
-        //         article = {article}
-        //         isOpen = {article.id == this.state.openItemId}
-        //         toggleOpen = {this.toggleOpenItem.bind(this, article.id)}
-        //     />
-        // </li>);
-        //
-        // return (
-        //     <ul>
-        //         {articleElements}
-        //     </ul>
-        // )
     }
 
     toggleOpenItem(openItemId) {
