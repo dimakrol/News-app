@@ -16,7 +16,7 @@ class Article extends Component {
 
     state = {
         updateIndex: 0
-    }
+    };
 
     // constructor(props) {
     //     super(props);
@@ -28,7 +28,6 @@ class Article extends Component {
 
     render() {
         const {article, isOpen, toggleOpen} = this.props;
-        // console.log('---', 'update Article');
         return (
             <div ref={this.setContainerRef}>
                 <h3>{article.title}</h3>
@@ -49,10 +48,10 @@ class Article extends Component {
         )
     }
 
-    setContainerRef = ref => {
-        this.container = ref;
-        console.log('--- ref', ref)
-    };
+    // setContainerRef = ref => {
+    //     this.container = ref;
+    //     console.log('--- ref', ref)
+    // };
 
     // shouldComponentUpdate(nextProps, nextState) {
     //     return nextProps.isOpen !== this.props.isOpen
