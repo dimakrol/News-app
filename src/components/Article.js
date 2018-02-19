@@ -40,7 +40,9 @@ class Article extends Component {
                     transitionAppear={true}
                     transitionAppearTimeout={500}
                     transitionEnterTimeout={300}
-                    transitionLeaveTimeout={500}>
+                    transitionLeaveTimeout={500}
+                    component='div'
+                >
                     {this.getBody()}
                 </CSSTransitionGroup>
             </div>
