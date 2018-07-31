@@ -7,9 +7,14 @@ import 'react-select/dist/react-select.css';
 
 class App extends Component {
 
-    state = {
-        selection: null
+    constructor(props) {
+        super(props);
+        this.state = {
+            selection: null
+        };
     }
+
+
 
     render() {
         const {articles} = this.props;

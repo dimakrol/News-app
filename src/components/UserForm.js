@@ -17,6 +17,7 @@ class UserFrom extends Component {
     }
 
     handleUserChange = (ev) => {
+        console.log('changed');
         this.setState({
             username: ev.target.value
         })

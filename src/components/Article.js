@@ -48,15 +48,6 @@ class Article extends Component {
         )
     }
 
-    // setContainerRef = ref => {
-    //     this.container = ref;
-    //     console.log('--- ref', ref)
-    // };
-
-    // shouldComponentUpdate(nextProps, nextState) {
-    //     return nextProps.isOpen !== this.props.isOpen
-    // }
-
     getBody() {
         const {article, isOpen} = this.props;
         if (!isOpen) return null;
@@ -64,13 +55,9 @@ class Article extends Component {
             <div>
                 <section>{article.text}</section>
                 <button onClick={() => this.setState({updateIndex: this.state.updateIndex + 1})}>Update</button>
-                <CommentList comments={article.comments} ref = {this.setCommentsRef} key={this.state.updateIndex}></CommentList>
+                <CommentList comments={article.comments}></CommentList>
             </div>
         )
-    }
-
-    setCommentsRef = ref => {
-        console.log('---', ref)
     }
 }
 
