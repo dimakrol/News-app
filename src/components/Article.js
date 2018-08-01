@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import CommentList from './CommentList';
 import { CSSTransitionGroup } from 'react-transition-group'
 import './article.css'
+import AddComment from './AddComment/AddComment';
 
 class Article extends Component {
 
@@ -53,9 +54,12 @@ class Article extends Component {
         if (!isOpen) return null;
         return (
             <div>
-                <section>{article.text}</section>
-                <button onClick={() => this.setState({updateIndex: this.state.updateIndex + 1})}>Update</button>
-                <CommentList comments={article.comments}></CommentList>
+              <section>{article.text}</section>
+              <CommentList comments={article.comments}></CommentList>
+              <br/>
+              <div>
+                <AddComment/>
+              </div>
             </div>
         )
     }
