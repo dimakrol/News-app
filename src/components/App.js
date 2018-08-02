@@ -4,6 +4,7 @@ import ArticlesChart from './ArticlesChart';
 import UserForm from './UserForm';
 import Select from 'react-select';
 import 'react-select/dist/react-select.css';
+import DateRange from './Filters/DateRange';
 
 class App extends Component {
 
@@ -24,6 +25,7 @@ class App extends Component {
         }));
         return (
             <div>
+                <DateRange />
                 <UserForm />
                 <Select options = {options} value={this.state.selection} onChange={this.changeSelection}/>
                 <ArticleList articles = {articles} defaultOpenId={articles[0].id}/>
