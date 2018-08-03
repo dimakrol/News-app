@@ -4,7 +4,9 @@ import ArticlesChart from './ArticlesChart';
 import UserForm from './UserForm';
 import Select from 'react-select';
 import 'react-select/dist/react-select.css';
+import Counter from './Counter';
 import DateRange from './Filters/DateRange';
+
 
 class App extends Component {
 
