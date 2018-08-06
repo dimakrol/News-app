@@ -21,14 +21,6 @@ class Article extends Component {
         updateIndex: 0
     };
 
-    // constructor(props) {
-    //     super(props);
-    //
-    //     this.state = {
-    //         isOpen: props.defaultOpen
-    //     }
-    // }
-
     render() {
         const {article, isOpen, toggleOpen} = this.props;
         return (
@@ -53,11 +45,11 @@ class Article extends Component {
             </div>
         )
     }
+
     handleDelete = () => {
       const {deleteArticle, article} = this.props;
       deleteArticle(article.id);
-      console.log('---', ' Delete this');
-    }
+    };
 
     getBody() {
         const {article, isOpen} = this.props;

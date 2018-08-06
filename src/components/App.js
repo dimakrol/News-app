@@ -19,11 +19,9 @@ class App extends Component {
 
 
     render() {
-        // const {articles} = this.props;
 
         return (
             <div>
-                {/*<Counter />*/}
                 <ArticleSelect />
                 <DateRange />
                 <UserForm />
@@ -31,8 +29,6 @@ class App extends Component {
             </div>
         )
     }
-
-    changeSelection = selection => this.setState({ selection })
 }
 
 export default App

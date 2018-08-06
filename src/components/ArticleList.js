@@ -15,13 +15,24 @@ class ArticleList extends Component {
     };
 
     render() {
-        const articleElements = this.props.articles.map((article) => <li key={article.id}>
+
+        const selectedIds = this.props.selectedArticles.map((selected) => selected.value );
+
+        let articlesToDisplay = this.props.articles;
+        if (selectedIds.length) {
+          articlesToDisplay = articlesToDisplay.filter((article) => {
+            return selectedIds.includes(article.id)
+          });
+        }
+
+        const articleElements = articlesToDisplay.map((article) =>
+          <li key={article.id}>
             <Article
                 article = {article}
                 isOpen = {article.id == this.props.openItemId}
                 toggleOpen = {this.props.toggleOpenItem.bind(this, article.id)}
             />
-        </li>);
+          </li>);
 
         return (
             <ul>
@@ -32,5 +43,6 @@ class ArticleList extends Component {
 }
 export default connect(state => ({
   articles: state.articles,
+  selectedArticles: state.filters.selected
   // defaultOpenId: state.articles[0].id//default open article id
 }))(accordion(ArticleList));
