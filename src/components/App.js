@@ -27,6 +27,7 @@ class App extends Component {
         }));
         return (
             <div>
+                <Counter />
                 <DateRange />
                 <UserForm />
                 <Select options = {options} value={this.state.selection} onChange={this.changeSelection}/>
