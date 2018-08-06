@@ -35,6 +35,9 @@ class Article extends Component {
                 <button onClick = {toggleOpen} >
                     {isOpen ? 'close' : 'open'}
                 </button>
+                <button onClick={this.handleDelete}>
+                  Delete
+                </button>
                 <CSSTransitionGroup
                     transitionName="article"
                     transitionAppear={true}
@@ -47,6 +50,9 @@ class Article extends Component {
                 </CSSTransitionGroup>
             </div>
         )
+    }
+    handleDelete = () => {
+      console.log('---', ' Delete this');
     }
 
     getBody() {
