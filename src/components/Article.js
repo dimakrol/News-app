@@ -1,7 +1,9 @@
-import React, {Component, PureComponent} from 'react';
+import React, {Component} from 'react';
+import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
 import CommentList from './CommentList';
 import { CSSTransitionGroup } from 'react-transition-group'
+import {deleteArticle} from '../AC';
 import './article.css'
 import AddComment from './AddComment/AddComment';
 
@@ -52,6 +54,8 @@ class Article extends Component {
         )
     }
     handleDelete = () => {
+      const {deleteArticle, article} = this.props;
+      deleteArticle(article.id);
       console.log('---', ' Delete this');
     }
 
@@ -71,7 +75,7 @@ class Article extends Component {
     }
 }
 
-export default Article;
+export default connect(null, {deleteArticle})(Article);
 // export default function Article(props) {
 //     const {article} = props;
 //     return (
