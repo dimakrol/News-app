@@ -10,7 +10,7 @@ function CommentList({comments = [], isOpen, toggleOpen}) {
     //     comments: []
     // };
 
-    const text = isOpen ? 'hide comments' : 'show comments'
+    const text = isOpen ? 'hide comments' : 'show comments';
 
     return (
         <div>
@@ -21,7 +21,7 @@ function CommentList({comments = [], isOpen, toggleOpen}) {
 }
 
 CommentList.propTypes = {
-    comments: PropTypes.arrayOf(PropTypes.object),
+    comments: PropTypes.arrayOf(PropTypes.string),
     isOpen: PropTypes.bool,
     toggleOpen: PropTypes.func
 };
@@ -33,7 +33,7 @@ function getBody({comments, isOpen}) {
 
     return (
         <ul>
-            {comments.map(comment => <li key={comment.id}><Comment comment={comment}/></li>)}
+            {comments.map(id => <li key={id}><Comment id={id}/></li>)}
         </ul>
     )
 }
