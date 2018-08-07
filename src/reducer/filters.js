@@ -1,4 +1,4 @@
-import {CHANGE_SELECTION, CHANGE_DATE} from '../constants';
+import {CHANGE_SELECTION, CHANGE_DATE, DELETE_ARTICLE} from '../constants';
 
 const defaultFilters = {
   selected: [],
@@ -14,6 +14,7 @@ export default (filters = defaultFilters, action) => {
   switch (type) {
     case CHANGE_DATE: return {...filters, selectedDates: {from: payload.from, to: payload.to}};
     case CHANGE_SELECTION: return {...filters, selected: payload.selected};
+    case DELETE_ARTICLE: return {...filters, selected: filters.selected.map((select) => select.id !== select.value)}
   }
 
   return filters;
