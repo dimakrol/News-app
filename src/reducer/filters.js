@@ -3,8 +3,8 @@ import {CHANGE_SELECTION, CHANGE_DATE, DELETE_ARTICLE} from '../constants';
 const defaultFilters = {
   selected: [],
   selectedDates: {
-    from: '',
-    to: ''
+    from: null,
+    to: null
   }
 };
 
