@@ -35,6 +35,8 @@
   "dependencies": {
     "history": "^4.6.3",
     "immutable": "^3.8.1",
+    "moment": "^2.22.2",
+    "moment-range": "^4.0.1",
     "prop-types": "^15.5.10",
     "react": "^15.5.0",
     "react-day-picker": "^6.2.1",
